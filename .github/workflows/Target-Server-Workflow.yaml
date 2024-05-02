@@ -1,0 +1,12 @@
+name: Target-Server-Calling-Workflow
+run-name: ${{ github.triggering_actor }} ran pipeline for APIGEE Target Server deployment.
+on:
+  pull_request:
+      branches:
+        - production
+      types:
+        - opened
+jobs:
+  Call_Target_Server_Reusable_workflow:
+    uses: project/apigee-cicd/.github/workflows/Target-Server-CICD.yml@main
+    secrets: inherit
